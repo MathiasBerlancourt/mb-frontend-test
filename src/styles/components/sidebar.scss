@@ -1,0 +1,16 @@
+.sidebar{
+  width: 550px;
+  height: 100vh;
+  border-right: 1px solid #F5F5F5;
+
+  .sidebar-header{
+    border-bottom: 1px solid #F5F5F5;
+    padding: 10px;
+  }
+
+  .sidebar-content{
+    padding: 10px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}
