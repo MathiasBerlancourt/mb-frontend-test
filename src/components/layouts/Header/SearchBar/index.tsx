@@ -12,6 +12,7 @@ import { useSearchBar } from "./logics";
 import { Ad } from "../../../../types/Ad";
 import { useGeocoding } from "./logics";
 import { useState } from "react";
+import { Coordinates } from "../../../../types/Coordinates";
 
 interface ISearchBarProps {
   setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
@@ -20,12 +21,20 @@ interface ISearchBarProps {
 const SearchBar = ({ setAds }: ISearchBarProps) => {
   const { searchAdBody, setSearchAdBody } = useSearchBar(setAds);
   const [address, setAddress] = useState<string>("");
-
+  const { addressCoordinates } = useGeocoding(address);
+  console.log("addressCoordinates:", addressCoordinates);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
     setAddress(event.target.value);
+    if (addressCoordinates) {
+      setSearchAdBody({
+        ...searchAdBody,
+        latitude: addressCoordinates.latitude,
+        longitude: addressCoordinates.longitude,
+      });
+    }
   };
-  useGeocoding(address);
+  console.log("SearchAdBody test:", searchAdBody);
 
   return (
     <Stack flexDirection="row">
