@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useSearchBar } from "./logics";
 import { Ad } from "../../../../types/Ad";
+import { useGeocoding } from "./logics";
+import { useState } from "react";
 
 interface ISearchBarProps {
   setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
@@ -17,11 +19,19 @@ interface ISearchBarProps {
 
 const SearchBar = ({ setAds }: ISearchBarProps) => {
   const { searchAdBody, setSearchAdBody } = useSearchBar(setAds);
+  const [address, setAddress] = useState<string>("");
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    event.preventDefault();
+    setAddress(event.target.value);
+  };
+  useGeocoding(address);
 
   return (
     <Stack flexDirection="row">
-      <Input placeholder="Adress" />
+      <Input placeholder="Address" value={address} onChange={handleChange} />
       <RangeSlider
+        // eslint-disable-next-line jsx-a11y/aria-proptypes
         aria-label={["min", "max"]}
         defaultValue={[0, 30]}
         onChangeEnd={(val) =>
