@@ -18,6 +18,7 @@ import { Field, Form, Formik } from "formik";
 import { useSearchBar } from "./logics";
 import { Ad } from "../../../../types/Ad";
 import { Coordinates } from "../../../../types/Coordinates";
+import "../../../../styles/components/header.scss";
 
 interface ISearchBarProps {
   setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
@@ -37,7 +38,7 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
   return (
     <Formik initialValues={{ address: "" }} onSubmit={() => handleSubmit()}>
       {(props) => (
-        <Form>
+        <Form className="header-content">
           <Field name="address" validate={validateAddress}>
             {({ field, form }: { field: any; form: any }) => (
               <FormControl

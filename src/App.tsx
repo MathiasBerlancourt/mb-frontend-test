@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import SidebarUIComponent from "./components/layouts/SidebarUIComponent";
 import "./styles/globals.scss";
 import MapComponent from "./components/MapComponent";
@@ -10,8 +10,11 @@ function App() {
   const [ads, setAds] = useState<Ad[]>();
   return (
     <>
-      <Flex className="app-structure">
+      <Heading>
         <Header setAds={setAds} />
+      </Heading>
+
+      <Flex className="main-structure">
         <SidebarUIComponent />
         <MapComponent />
       </Flex>
