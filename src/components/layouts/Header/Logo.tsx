@@ -5,7 +5,7 @@ import "../../../styles/components/header.scss";
 
 const Logo = () => {
   return (
-    <Box boxSize="sm">
+    <Box boxSize="s">
       <Image src={logo} alt="logo" className="logo" />
     </Box>
   );

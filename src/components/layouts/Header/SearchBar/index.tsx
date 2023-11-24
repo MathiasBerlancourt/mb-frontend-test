@@ -5,19 +5,18 @@ import {
   Stack,
   Radio,
   RadioGroup,
-  RangeSlider,
-  RangeSliderTrack,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
   FormControl,
-  FormLabel,
   FormErrorMessage,
   Button,
+  Slider,
+  SliderTrack,
+  SliderThumb,
+  SliderFilledTrack,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import { useSearchBar } from "./logics";
 import { Ad } from "../../../../types/Ad";
-import { Coordinates } from "../../../../types/Coordinates";
+
 import "../../../../styles/components/header.scss";
 
 interface ISearchBarProps {
@@ -30,62 +29,73 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
     setAddressInput,
     searchAdBody,
     setSearchAdBody,
-    validateAddress,
+
     handleSubmit,
     isLoading,
   } = useSearchBar(setAds);
 
   return (
-    <Formik initialValues={{ address: "" }} onSubmit={() => handleSubmit()}>
-      {(props) => (
-        <Form className="header-content">
-          <Field name="address" validate={validateAddress}>
-            {({ field, form }: { field: any; form: any }) => (
-              <FormControl
-                isInvalid={form.errors.address && form.touched.address}
-              >
-                <FormLabel>Address</FormLabel>
-                <Input
-                  {...field}
-                  placeholder="Address"
-                  value={addressInput}
-                  onChange={(e) => {
-                    field.onChange(e);
-                    setAddressInput(e.target.value);
-                  }}
-                />
-                <FormErrorMessage>{form.errors.address}</FormErrorMessage>
-              </FormControl>
-            )}
-          </Field>
-          <RangeSlider
-            aria-label={["min", "max"]}
-            defaultValue={[0, 30]}
-            onChangeEnd={(val) =>
-              setSearchAdBody({ ...searchAdBody, radius: val[1] })
-            }
-          >
-            <RangeSliderTrack>
-              <RangeSliderFilledTrack />
-            </RangeSliderTrack>
-            <RangeSliderThumb index={1} />
-          </RangeSlider>
-          <RadioGroup defaultValue="2">
-            <Stack spacing={5} direction="row">
-              <Radio colorScheme="red" value="1">
-                Rent
-              </Radio>
-              <Radio colorScheme="green" value="2">
-                Sale
-              </Radio>
-            </Stack>
-          </RadioGroup>
-          <Button mt={4} colorScheme="teal" isLoading={isLoading} type="submit">
-            Rechercher
-          </Button>
-        </Form>
-      )}
-    </Formik>
+    <Stack direction="row">
+      <Formik initialValues={{ address: "" }} onSubmit={() => handleSubmit()}>
+        {(props) => (
+          <Form className="header-content">
+            <Field name="address">
+              {({ field, form }: { field: any; form: any }) => (
+                <FormControl
+                  isInvalid={form.errors.address && form.touched.address}
+                >
+                  <Input
+                    {...field}
+                    placeholder="Address"
+                    value={addressInput}
+                    onChange={(e) => {
+                      field.onChange(e);
+                      setAddressInput(e.target.value);
+                    }}
+                  />
+                  <FormErrorMessage>{form.errors.address}</FormErrorMessage>
+                </FormControl>
+              )}
+            </Field>
+            <Button
+              margin-x={"10px"}
+              width={"30%"}
+              colorScheme="teal"
+              isLoading={isLoading}
+              type="submit"
+            >
+              Rechercher
+            </Button>
+
+            <Slider
+              aria-label="slider-ex-1"
+              defaultValue={5}
+              min={0}
+              max={10000}
+              onChangeEnd={(val) =>
+                setSearchAdBody({ ...searchAdBody, radius: val })
+              }
+            >
+              <SliderTrack>
+                <SliderFilledTrack />
+              </SliderTrack>
+              <SliderThumb />
+            </Slider>
+
+            <RadioGroup defaultValue="2">
+              <Stack spacing={5} direction="row">
+                <Radio colorScheme="red" value="1">
+                  Rent
+                </Radio>
+                <Radio colorScheme="green" value="2">
+                  Sale
+                </Radio>
+              </Stack>
+            </RadioGroup>
+          </Form>
+        )}
+      </Formik>
+    </Stack>
   );
 };
 

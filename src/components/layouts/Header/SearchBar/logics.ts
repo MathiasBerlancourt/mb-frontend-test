@@ -3,8 +3,6 @@ import { IAdAPIBody } from "../../../../types/AdAPIBody";
 import AdsAPI from "../../../../api/AdsAPI";
 import GeoCoding from "../../../../api/fetchGeocing";
 import { Ad } from "../../../../types/Ad";
-import axios from "axios";
-import { Coordinates } from "../../../../types/Coordinates";
 
 const initialState: IAdAPIBody = {
   latitude: 48.8588897,
@@ -53,14 +51,6 @@ export const useSearchBar = (
     }
   };
 
-  const validateAddress = (value: string) => {
-    let error;
-    if (!value) {
-      error = "Address is required";
-    }
-    return error;
-  };
-
   useEffect(() => {
     fetchGeocoding();
   }, [addressInput]);
@@ -76,7 +66,6 @@ export const useSearchBar = (
     setSearchAdBody,
     isLoading,
     error,
-    validateAddress,
     handleSubmit,
   };
 };

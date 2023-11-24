@@ -15,7 +15,7 @@ function App() {
       </Heading>
 
       <Flex className="main-structure">
-        <SidebarUIComponent />
+        <SidebarUIComponent ads={ads} />
         <MapComponent />
       </Flex>
     </>
