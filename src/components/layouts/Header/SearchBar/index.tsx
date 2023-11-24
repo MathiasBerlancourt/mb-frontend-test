@@ -20,12 +20,12 @@ interface ISearchBarProps {
 
 const SearchBar = ({ setAds }: ISearchBarProps) => {
   const { searchAdBody, setSearchAdBody } = useSearchBar(setAds);
-  const [address, setAddress] = useState<string>("");
-  const { addressCoordinates } = useGeocoding(address);
+  const [addressInput, setAddressInput] = useState<string>("");
+  const { addressCoordinates } = useGeocoding(addressInput);
   console.log("addressCoordinates:", addressCoordinates);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    setAddress(event.target.value);
+    setAddressInput(event.target.value);
     if (addressCoordinates) {
       setSearchAdBody({
         ...searchAdBody,
@@ -38,7 +38,11 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
 
   return (
     <Stack flexDirection="row">
-      <Input placeholder="Address" value={address} onChange={handleChange} />
+      <Input
+        placeholder="Address"
+        value={addressInput}
+        onChange={handleChange}
+      />
       <RangeSlider
         // eslint-disable-next-line jsx-a11y/aria-proptypes
         aria-label={["min", "max"]}
