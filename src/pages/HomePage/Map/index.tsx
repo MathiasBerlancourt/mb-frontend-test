@@ -5,7 +5,6 @@ import Map, {
   GeolocateControl,
   NavigationControl,
   ScaleControl,
-  Popup,
 } from "react-map-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";

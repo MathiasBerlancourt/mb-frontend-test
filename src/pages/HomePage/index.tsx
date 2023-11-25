@@ -2,6 +2,7 @@ import { type Ad } from "types/Ad";
 import { Flex } from "@chakra-ui/react";
 import MapComponent from "./Map/index";
 import SidebarUIComponent from "./Sidebar/index";
+import Header from "./Header";
 
 interface IHomePageProps {
   ads: Ad[] | undefined;
@@ -11,10 +12,13 @@ interface IHomePageProps {
 
 const HomePage = ({ ads, setSelectedAd, setAds }: IHomePageProps) => {
   return (
-    <Flex className="main-structure">
-      <SidebarUIComponent ads={ads} setSelectedAd={setSelectedAd} />
-      <MapComponent ads={ads} />
-    </Flex>
+    <>
+      <Header setAds={setAds} />
+      <Flex className="main-structure">
+        <SidebarUIComponent ads={ads} setSelectedAd={setSelectedAd} />
+        <MapComponent ads={ads} />
+      </Flex>
+    </>
   );
 };
 export default HomePage;

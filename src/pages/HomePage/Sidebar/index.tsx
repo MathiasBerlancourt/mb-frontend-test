@@ -1,6 +1,5 @@
 import { type Ad } from "types/Ad";
-import { useMemo } from "react";
-import { Box, Heading, Skeleton, Text, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, List } from "@chakra-ui/react";
 import AdCard from "../../../components/AdsComponents/AdCard";
 
 interface ISidebarUIComponentProps {
@@ -14,13 +13,17 @@ const SidebarUIComponent = ({
 }: ISidebarUIComponentProps) => {
   const renderAds = () => {
     if (ads) {
-      return ads.map((ad, index) => (
-        <AdCard
-          key={`${ad.adId}-${index}`}
-          ad={ad}
-          setSelectedAd={setSelectedAd}
-        />
-      ));
+      return (
+        <List>
+          {ads.map((ad, index) => (
+            <AdCard
+              key={`${ad.adId}-${index}`}
+              ad={ad}
+              setSelectedAd={setSelectedAd}
+            />
+          ))}
+        </List>
+      );
     } else {
       return (
         <Flex justifyContent="center" alignItems="center">

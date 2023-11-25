@@ -1,7 +1,6 @@
 import { Marker, Popup } from "react-map-gl";
 import { type Ad } from "../../../types/Ad";
 import Pin from "../Pin";
-import { useAdPin } from "./logics";
 
 interface IAdPinProps {
   ad: Ad;

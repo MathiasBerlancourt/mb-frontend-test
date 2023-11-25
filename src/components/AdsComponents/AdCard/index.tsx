@@ -1,5 +1,5 @@
 import { type Ad } from "types/Ad";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { ListItem, Heading, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 interface IAdCardProps {
@@ -10,7 +10,7 @@ interface IAdCardProps {
 const AdCard = ({ ad, setSelectedAd }: IAdCardProps) => {
   const navigate = useNavigate();
   return (
-    <Box
+    <ListItem
       onClick={() => {
         navigate(`/ad/${ad.adId}`);
         setSelectedAd(ad);
@@ -27,7 +27,7 @@ const AdCard = ({ ad, setSelectedAd }: IAdCardProps) => {
       <Text fontSize="sm" color="gray.500">
         {ad.price} €
       </Text>
-    </Box>
+    </ListItem>
   );
 };
 

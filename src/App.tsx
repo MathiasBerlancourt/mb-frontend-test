@@ -10,7 +10,6 @@ function App() {
 
   return (
     <Router>
-      <Header setAds={setAds} />
       <Routes>
         <Route
           path="/"

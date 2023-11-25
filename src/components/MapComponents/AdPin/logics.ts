@@ -1,4 +1,3 @@
-import { type Ad } from "types/Ad";
 import { useState } from "react";
 
 export const useAdPin = () => {
