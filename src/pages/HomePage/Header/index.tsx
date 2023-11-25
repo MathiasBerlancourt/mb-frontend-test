@@ -9,7 +9,14 @@ interface ISidebarUIComponentProps {
 }
 const Header = ({ setAds }: ISidebarUIComponentProps) => {
   return (
-    <Flex width="100%" flexDirection="row" gap={4} alignItems="center" py={4}>
+    <Flex
+      width="100%"
+      flexDirection="row"
+      gap={4}
+      alignItems="center"
+      py={6}
+      px={2}
+    >
       <Logo />
       <SearchBar setAds={setAds} />
     </Flex>

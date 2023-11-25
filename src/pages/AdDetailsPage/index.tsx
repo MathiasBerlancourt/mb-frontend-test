@@ -1,3 +1,4 @@
+import { Heading } from "@chakra-ui/react";
 import { type Ad } from "types/Ad";
 
 interface IAdDetailPageProps {
@@ -7,6 +8,8 @@ interface IAdDetailPageProps {
 const AdDetailsPage = ({ selectedAd }: IAdDetailPageProps) => {
   return (
     <div>
+      <Heading>{selectedAd?.title}</Heading>
+
       <div>{selectedAd?.surface}</div>
       <div>{selectedAd?.type}</div>
     </div>

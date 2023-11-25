@@ -6,9 +6,10 @@ import SidebarUIComponent from "./Sidebar/index";
 interface IHomePageProps {
   ads: Ad[] | undefined;
   setSelectedAd: React.Dispatch<React.SetStateAction<Ad | undefined>>;
+  setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
 }
 
-const HomePage = ({ ads, setSelectedAd }: IHomePageProps) => {
+const HomePage = ({ ads, setSelectedAd, setAds }: IHomePageProps) => {
   return (
     <Flex className="main-structure">
       <SidebarUIComponent ads={ads} setSelectedAd={setSelectedAd} />

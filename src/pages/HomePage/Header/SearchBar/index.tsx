@@ -12,12 +12,19 @@ import {
   SliderThumb,
   SliderFilledTrack,
   Flex,
+  SliderMark,
 } from "@chakra-ui/react";
 import { useSearchBar } from "./logics";
 
 interface ISearchBarProps {
   setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
 }
+
+const labelStyles = {
+  mt: "2",
+  ml: "-2.5",
+  fontSize: "sm",
+};
 
 const SearchBar = ({ setAds }: ISearchBarProps) => {
   const {
@@ -37,13 +44,14 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
       alignItems="center"
     >
       <Input
-        placeholder="Address"
+        placeholder="Addresse"
         width="30%"
         value={addressInput}
         onChange={(e) => {
           setAddressInput(e.target.value);
         }}
       />
+      <p>0 km</p>
       <Slider
         width="30%"
         aria-label="slider-ex-2"
@@ -55,11 +63,34 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
           setSearchAdBody({ ...searchAdBody, radius: value })
         }
       >
+        <SliderMark value={50} {...labelStyles}>
+          50
+        </SliderMark>
+        <SliderMark value={100} {...labelStyles}>
+          100
+        </SliderMark>
+        <SliderMark value={200} {...labelStyles}>
+          200
+        </SliderMark>
+        <SliderMark value={300} {...labelStyles}>
+          300
+        </SliderMark>
+        <SliderMark
+          value={searchAdBody.radius}
+          textAlign="center"
+          color="black"
+          mt="-10"
+          ml="-5"
+          w="12"
+        >
+          {searchAdBody.radius}
+        </SliderMark>
         <SliderTrack>
           <SliderFilledTrack />
         </SliderTrack>
         <SliderThumb />
       </Slider>
+      <p>300 km</p>
       <RadioGroup
         defaultValue="sale"
         onChange={(value: IAdAPIBody["type"]) =>

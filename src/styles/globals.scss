@@ -1,14 +1,17 @@
 @import "components/sidebar.scss";
-@import "components/header.scss";
 body,
 html {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
   margin: 0;
-  padding: 8px;
+  height: 100%;
 }
 
 .main-structure {
-  display: flex;
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 96px);
   flex-direction: row;
+  top: 96px;
+  left: 0;
 }

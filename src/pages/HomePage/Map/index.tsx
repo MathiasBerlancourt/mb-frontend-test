@@ -1,9 +1,11 @@
 import { type Ad } from "types/Ad";
+import { useState } from "react";
 import Map, {
   FullscreenControl,
   GeolocateControl,
   NavigationControl,
   ScaleControl,
+  Popup,
 } from "react-map-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -14,6 +16,8 @@ interface IMapProps {
 }
 
 const MapComponent = ({ ads }: IMapProps) => {
+  const [popupInfo, setPopupInfo] = useState("");
+
   return (
     <Map
       mapLib={import("mapbox-gl")}
@@ -25,11 +29,16 @@ const MapComponent = ({ ads }: IMapProps) => {
       mapboxAccessToken={
         "pk.eyJ1IjoibWVpbGxldXJzYmllbnNpbW1vIiwiYSI6ImNreWl5aHJ6bzJoNncycG84bnZodjQ2Y3UifQ.o2b28V_Z7iyDsivsn5YWKQ"
       }
-      style={{ width: "100%", height: "85vh" }}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      style={{ width: "100%", height: "100%" }}
+      mapStyle="mapbox://styles/mapbox/streets-v12"
     >
       {ads?.map((ad, index) => (
-        <AdPin ad={ad} key={`${index}-${ad.adId}`} />
+        <AdPin
+          ad={ad}
+          key={`${index}-${ad.adId}`}
+          popupInfo={popupInfo}
+          setPopupInfo={setPopupInfo}
+        />
       ))}
       <GeolocateControl position="top-left" />
       <FullscreenControl position="top-left" />

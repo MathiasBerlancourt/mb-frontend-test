@@ -14,7 +14,9 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage ads={ads} setSelectedAd={setSelectedAd} />}
+          element={
+            <HomePage ads={ads} setSelectedAd={setSelectedAd} setAds={setAds} />
+          }
         />
         <Route
           path="/ad/:adId"
