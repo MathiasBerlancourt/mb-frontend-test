@@ -14,7 +14,7 @@ export default function MapComponent() {
       mapboxAccessToken={
         "pk.eyJ1IjoibWVpbGxldXJzYmllbnNpbW1vIiwiYSI6ImNreWl5aHJ6bzJoNncycG84bnZodjQ2Y3UifQ.o2b28V_Z7iyDsivsn5YWKQ"
       }
-      style={{ width: "100%", height: "90vh" }}
+      style={{ width: "100%", height: "85vh" }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
     />
   );

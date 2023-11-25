@@ -1,6 +1,4 @@
-import { AdAPIResponse } from "../types/AdAPIResponse";
-import { IAdAPIBody } from "../types/AdAPIBody";
-import { IGeoCodingParam, IGeoCodingBody } from "../types/geoCodingAPI";
+import { IGeoCodingBody } from "../types/geoCodingAPI";
 import axios from "axios";
 
 export default class GeoCoding {

@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
-import logo from "../../../styles/assets/mb.comlogo.jpeg";
+import logo from "../../../styles/assets/logo.svg";
 import "../../../styles/components/header.scss";
 
 const Logo = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IAdAPIBody } from "../../../../types/AdAPIBody";
 import AdsAPI from "../../../../api/AdsAPI";
-import GeoCoding from "../../../../api/fetchGeocing";
+import GeoCoding from "../../../../api/fetchGeocoding";
 import { Ad } from "../../../../types/Ad";
 
 const initialState: IAdAPIBody = {

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React from "react";
 import {
   Input,
   Stack,
@@ -12,33 +11,32 @@ import {
   SliderTrack,
   SliderThumb,
   SliderFilledTrack,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import { useSearchBar } from "./logics";
 import { Ad } from "../../../../types/Ad";
 
-import "../../../../styles/components/header.scss";
-
 interface ISearchBarProps {
   setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
 }
 
-const SearchBar = ({ setAds }: ISearchBarProps) => {
+const SearchBar: React.FC<ISearchBarProps> = ({ setAds }) => {
   const {
     addressInput,
     setAddressInput,
     searchAdBody,
     setSearchAdBody,
-
     handleSubmit,
     isLoading,
   } = useSearchBar(setAds);
 
   return (
-    <Stack direction="row">
-      <Formik initialValues={{ address: "" }} onSubmit={() => handleSubmit()}>
-        {(props) => (
-          <Form className="header-content">
+    <Formik initialValues={{ address: "" }} onSubmit={handleSubmit}>
+      {(props) => (
+        <Form className="header-content">
+          <Flex flexDirection={"column"}>
             <Field name="address">
               {({ field, form }: { field: any; form: any }) => (
                 <FormControl
@@ -57,15 +55,6 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
                 </FormControl>
               )}
             </Field>
-            <Button
-              margin-x={"10px"}
-              width={"30%"}
-              colorScheme="teal"
-              isLoading={isLoading}
-              type="submit"
-            >
-              Rechercher
-            </Button>
 
             <Slider
               aria-label="slider-ex-1"
@@ -82,20 +71,38 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
               <SliderThumb />
             </Slider>
 
-            <RadioGroup defaultValue="2">
+            <RadioGroup
+              defaultValue="sale"
+              onChange={(value) =>
+                setSearchAdBody({
+                  ...searchAdBody,
+                  type: value as "rent" | "sale",
+                })
+              }
+              value={searchAdBody.type}
+            >
               <Stack spacing={5} direction="row">
-                <Radio colorScheme="red" value="1">
+                <Radio colorScheme="green" value="rent">
                   Rent
                 </Radio>
-                <Radio colorScheme="green" value="2">
+                <Radio colorScheme="green" value="sale">
                   Sale
                 </Radio>
               </Stack>
             </RadioGroup>
-          </Form>
-        )}
-      </Formik>
-    </Stack>
+          </Flex>
+          <Button
+            margin-x={"10px"}
+            width={"30%"}
+            colorScheme="red"
+            isLoading={isLoading}
+            type="submit"
+          >
+            Rechercher
+          </Button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
