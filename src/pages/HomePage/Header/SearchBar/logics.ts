@@ -5,8 +5,8 @@ import AdsAPI from "api/AdsAPI";
 import GeoCoding from "api/fetchGeocoding";
 
 const initialState: IAdAPIBody = {
-  latitude: 48.8588897,
-  longitude: 2.320041,
+  latitude: 0,
+  longitude: 0,
   radius: 100,
   type: "rent",
 };
@@ -53,6 +53,7 @@ export const useSearchBar = (
 
   useEffect(() => {
     fetchGeocoding();
+    //eslint-disable-next-line
   }, [addressInput]);
 
   const handleSubmit = () => {

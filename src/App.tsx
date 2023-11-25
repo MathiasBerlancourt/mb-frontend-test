@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/layouts/Header";
+import Header from "./pages/HomePage/Header";
 import AdDetailsPage from "./pages/AdDetailsPage";
 import HomePage from "./pages/HomePage";
 import { useAppRoot } from "./logics";

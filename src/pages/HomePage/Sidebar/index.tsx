@@ -1,8 +1,8 @@
 import { type Ad } from "types/Ad";
 import { Box, Heading, Skeleton, Text } from "@chakra-ui/react";
-import AdCard from "../../AdCard";
+import AdCard from "../../../components/AdsComponents/AdCard";
 
-interface SidebarUIComponentProps {
+interface ISidebarUIComponentProps {
   ads: Ad[] | undefined;
   setSelectedAd: React.Dispatch<React.SetStateAction<Ad | undefined>>;
 }
@@ -10,7 +10,7 @@ interface SidebarUIComponentProps {
 const SidebarUIComponent = ({
   ads,
   setSelectedAd,
-}: SidebarUIComponentProps) => {
+}: ISidebarUIComponentProps) => {
   return (
     <Box className={"sidebar"}>
       <Box className={"sidebar-header"}>

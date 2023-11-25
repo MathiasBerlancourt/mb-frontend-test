@@ -2,12 +2,12 @@ import { type Ad } from "types/Ad";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-interface AdCardProps {
+interface IAdCardProps {
   ad: Ad;
   setSelectedAd: React.Dispatch<React.SetStateAction<Ad | undefined>>;
 }
 
-const AdCard = ({ ad, setSelectedAd }: AdCardProps) => {
+const AdCard = ({ ad, setSelectedAd }: IAdCardProps) => {
   const navigate = useNavigate();
   return (
     <Box

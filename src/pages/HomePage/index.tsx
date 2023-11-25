@@ -1,14 +1,14 @@
 import { type Ad } from "types/Ad";
 import { Flex } from "@chakra-ui/react";
-import MapComponent from "../../components/layouts/Map/index";
-import SidebarUIComponent from "../../components/layouts/Sidebar/index";
+import MapComponent from "./Map/index";
+import SidebarUIComponent from "./Sidebar/index";
 
-interface HomePageProps {
+interface IHomePageProps {
   ads: Ad[] | undefined;
   setSelectedAd: React.Dispatch<React.SetStateAction<Ad | undefined>>;
 }
 
-const HomePage = ({ ads, setSelectedAd }: HomePageProps) => {
+const HomePage = ({ ads, setSelectedAd }: IHomePageProps) => {
   return (
     <Flex className="main-structure">
       <SidebarUIComponent ads={ads} setSelectedAd={setSelectedAd} />

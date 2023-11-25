@@ -19,7 +19,7 @@ interface ISearchBarProps {
   setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
 }
 
-const SearchBar: React.FC<ISearchBarProps> = ({ setAds }) => {
+const SearchBar = ({ setAds }: ISearchBarProps) => {
   const {
     addressInput,
     setAddressInput,
@@ -83,6 +83,7 @@ const SearchBar: React.FC<ISearchBarProps> = ({ setAds }) => {
         margin-x={"10px"}
         colorScheme="red"
         isLoading={isLoading}
+        isDisabled={!searchAdBody.latitude || !searchAdBody.longitude}
         onClick={() => handleSubmit()}
       >
         Rechercher
