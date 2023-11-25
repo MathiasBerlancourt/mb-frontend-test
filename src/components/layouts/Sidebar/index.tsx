@@ -1,14 +1,16 @@
+import { type Ad } from "types/Ad";
 import { Box, Heading, Skeleton, Text } from "@chakra-ui/react";
-
-import { Ad } from "../../../types/Ad";
-import React from "react";
 import AdCard from "../../AdCard";
 
 interface SidebarUIComponentProps {
   ads: Ad[] | undefined;
+  setSelectedAd: React.Dispatch<React.SetStateAction<Ad | undefined>>;
 }
 
-const SidebarUIComponent: React.FC<SidebarUIComponentProps> = ({ ads }) => {
+const SidebarUIComponent = ({
+  ads,
+  setSelectedAd,
+}: SidebarUIComponentProps) => {
   return (
     <Box className={"sidebar"}>
       <Box className={"sidebar-header"}>
@@ -20,7 +22,9 @@ const SidebarUIComponent: React.FC<SidebarUIComponentProps> = ({ ads }) => {
       </Box>
       <Box className={"sidebar-content"}>
         {ads ? (
-          ads.map((ad) => <AdCard key={ad.adId} ad={ad} />)
+          ads.map((ad) => (
+            <AdCard key={ad.adId} ad={ad} setSelectedAd={setSelectedAd} />
+          ))
         ) : (
           <Skeleton w={"100%"} h={"100%"} />
         )}

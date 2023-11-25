@@ -1,24 +1,27 @@
-import { useState } from "react";
-import { Flex, Heading } from "@chakra-ui/react";
-import SidebarUIComponent from "./components/layouts/SidebarUIComponent";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/layouts/Header";
+import AdDetailsPage from "./pages/AdDetailsPage";
+import HomePage from "./pages/HomePage";
+import { useAppRoot } from "./logics";
 import "./styles/globals.scss";
-import MapComponent from "./components/layouts/MapComponent";
-import Header from "./components/layouts/Header/Header";
-import { Ad } from "./types/Ad";
 
 function App() {
-  const [ads, setAds] = useState<Ad[]>();
-  return (
-    <>
-      <Heading>
-        <Header setAds={setAds} />
-      </Heading>
+  const { ads, setAds, selectedAd, setSelectedAd } = useAppRoot();
 
-      <Flex className="main-structure">
-        <SidebarUIComponent ads={ads} />
-        <MapComponent />
-      </Flex>
-    </>
+  return (
+    <Router>
+      <Header setAds={setAds} />
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage ads={ads} setSelectedAd={setSelectedAd} />}
+        />
+        <Route
+          path="/ad/:adId"
+          element={<AdDetailsPage selectedAd={selectedAd} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 

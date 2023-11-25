@@ -1,8 +1,8 @@
+import { type IAdAPIBody } from "types/AdAPIBody";
+import { type Ad } from "types/Ad";
 import { useEffect, useState } from "react";
-import { IAdAPIBody } from "../../../../types/AdAPIBody";
-import AdsAPI from "../../../../api/AdsAPI";
-import GeoCoding from "../../../../api/fetchGeocoding";
-import { Ad } from "../../../../types/Ad";
+import AdsAPI from "api/AdsAPI";
+import GeoCoding from "api/fetchGeocoding";
 
 const initialState: IAdAPIBody = {
   latitude: 48.8588897,

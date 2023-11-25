@@ -1,5 +1,5 @@
 import { type Ad } from "types/Ad";
-import Map, { Marker } from "react-map-gl";
+import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 interface MapProps {
@@ -20,7 +20,7 @@ const MapComponent = ({ ads }: MapProps) => {
       }
       style={{ width: "100%", height: "85vh" }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
-    ></Map>
+    />
   );
 };
 export default MapComponent;
