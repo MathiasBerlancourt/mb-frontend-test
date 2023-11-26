@@ -1,27 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./pages/HomePage/Header";
 import AdDetailsPage from "./pages/AdDetailsPage";
 import HomePage from "./pages/HomePage";
 import { useAppRoot } from "./logics";
 import "./styles/globals.scss";
+import AdsContext from "./context";
 
 function App() {
-  const { ads, setAds, selectedAd, setSelectedAd } = useAppRoot();
+  const { ads, setAds, selectedAd, setSelectedAd, isLoading, setIsLoading } =
+    useAppRoot();
 
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage ads={ads} setSelectedAd={setSelectedAd} setAds={setAds} />
-          }
-        />
-        <Route
-          path="/ad/:adId"
-          element={<AdDetailsPage selectedAd={selectedAd} />}
-        />
-      </Routes>
+      <AdsContext.Provider
+        value={{
+          ads,
+          setAds,
+          selectedAd,
+          setSelectedAd,
+          isLoading,
+          setIsLoading,
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/ad/:adId" element={<AdDetailsPage />} />
+        </Routes>
+      </AdsContext.Provider>
     </Router>
   );
 }

@@ -9,13 +9,10 @@ import Map, {
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import AdPin from "components/MapComponents/AdPin";
+import { useMapComponent } from "./logic";
 
-interface IMapProps {
-  ads: Ad[] | undefined;
-}
-
-const MapComponent = ({ ads }: IMapProps) => {
-  const [popupInfo, setPopupInfo] = useState("");
+const MapComponent = () => {
+  const { popupInfo, setPopupInfo, ads } = useMapComponent();
 
   return (
     <Map

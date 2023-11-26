@@ -4,10 +4,7 @@ import Logo from "./Logo";
 import SearchBar from "./SearchBar/index";
 import "styles/globals.scss";
 
-interface ISidebarUIComponentProps {
-  setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
-}
-const Header = ({ setAds }: ISidebarUIComponentProps) => {
+const Header = () => {
   return (
     <Flex
       width="100%"
@@ -18,7 +15,7 @@ const Header = ({ setAds }: ISidebarUIComponentProps) => {
       px={2}
     >
       <Logo />
-      <SearchBar setAds={setAds} />
+      <SearchBar />
     </Flex>
   );
 };

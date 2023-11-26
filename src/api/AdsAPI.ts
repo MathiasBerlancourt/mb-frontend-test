@@ -16,8 +16,6 @@ export default class AdsAPI {
     type,
     radius,
   }: IAdAPIBody): Promise<AdAPIResponse> {
-    console.log("API params", latitude, longitude);
-
     return axios
       .post(
         "https://api.meilleursbiens.com/api/v1/saas/technical-tests/frontend",

@@ -1,18 +1,17 @@
-import { Heading } from "@chakra-ui/react";
-import { type Ad } from "types/Ad";
+import { Flex, Heading } from "@chakra-ui/react";
+import BreadCrumb from "components/AdDetailsPageComponents/BreadCrumb";
+import AdsContext from "context";
+import { useContext } from "react";
 
-interface IAdDetailPageProps {
-  selectedAd: Ad | undefined;
-}
-
-const AdDetailsPage = ({ selectedAd }: IAdDetailPageProps) => {
+const AdDetailsPage = () => {
+  const { selectedAd } = useContext(AdsContext);
   return (
-    <div>
+    <Flex>
+      <BreadCrumb />
       <Heading>{selectedAd?.title}</Heading>
-
       <div>{selectedAd?.surface}</div>
       <div>{selectedAd?.type}</div>
-    </div>
+    </Flex>
   );
 };
 

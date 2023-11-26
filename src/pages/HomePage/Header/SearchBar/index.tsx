@@ -16,17 +16,13 @@ import {
 } from "@chakra-ui/react";
 import { useSearchBar } from "./logics";
 
-interface ISearchBarProps {
-  setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>;
-}
-
 const labelStyles = {
   mt: "2",
   ml: "-2.5",
   fontSize: "sm",
 };
 
-const SearchBar = ({ setAds }: ISearchBarProps) => {
+const SearchBar = () => {
   const {
     addressInput,
     setAddressInput,
@@ -34,7 +30,7 @@ const SearchBar = ({ setAds }: ISearchBarProps) => {
     setSearchAdBody,
     handleSubmit,
     isLoading,
-  } = useSearchBar(setAds);
+  } = useSearchBar();
 
   return (
     <Flex

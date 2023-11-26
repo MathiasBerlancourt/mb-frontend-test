@@ -1,8 +1,8 @@
 import { type IAdAPIBody } from "types/AdAPIBody";
-import { type Ad } from "types/Ad";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AdsAPI from "api/AdsAPI";
 import GeoCoding from "api/fetchGeocoding";
+import AdsContext from "context";
 
 const initialState: IAdAPIBody = {
   latitude: 0,
@@ -11,12 +11,10 @@ const initialState: IAdAPIBody = {
   type: "rent",
 };
 
-export const useSearchBar = (
-  setAds: React.Dispatch<React.SetStateAction<Ad[] | undefined>>
-) => {
+export const useSearchBar = () => {
+  const { setAds, isLoading, setIsLoading } = useContext(AdsContext);
   const [searchAdBody, setSearchAdBody] = useState<IAdAPIBody>(initialState);
   const [addressInput, setAddressInput] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const fetchAds = async () => {
