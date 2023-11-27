@@ -1,18 +1,15 @@
-import { type Ad } from "types/Ad";
-import { useState } from "react";
 import Map, {
   FullscreenControl,
   GeolocateControl,
   NavigationControl,
   ScaleControl,
 } from "react-map-gl";
-
 import "mapbox-gl/dist/mapbox-gl.css";
 import AdPin from "components/MapComponents/AdPin";
 import { useMapComponent } from "./logic";
 
 const MapComponent = () => {
-  const { popupInfo, setPopupInfo, ads } = useMapComponent();
+  const { popupInfo, setPopupInfo, ads, setSelectedAd } = useMapComponent();
 
   return (
     <Map
@@ -34,6 +31,7 @@ const MapComponent = () => {
           key={`${index}-${ad.adId}`}
           popupInfo={popupInfo}
           setPopupInfo={setPopupInfo}
+          setSelectedAd={setSelectedAd}
         />
       ))}
       <GeolocateControl position="top-left" />

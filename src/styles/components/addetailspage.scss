@@ -1,0 +1,33 @@
+.adDetailsPage-main {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.carrousel {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.carrousel::-webkit-scrollbar {
+  display: none;
+}
+.col {
+  height: 100%;
+  width: calc((100% - 30px) / 3);
+  flex-shrink: 0;
+}
+.col > div {
+  width: 100%;
+  aspect-ratio: 27/ 20;
+  position: relative;
+}
+.col img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

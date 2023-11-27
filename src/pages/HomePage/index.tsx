@@ -1,4 +1,3 @@
-import { type Ad } from "types/Ad";
 import { Flex } from "@chakra-ui/react";
 import MapComponent from "./Map/index";
 import SidebarUIComponent from "./Sidebar/index";

@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Flex, List, Skeleton } from "@chakra-ui/react";
+import { useContext, useMemo } from "react";
 import AdCard from "../../../components/AdsComponents/AdCard";
 import AdsContext from "context";
-import { useContext, useMemo } from "react";
 
 const SidebarUIComponent = () => {
   const { ads, setSelectedAd, isLoading } = useContext(AdsContext);
@@ -31,7 +31,7 @@ const SidebarUIComponent = () => {
         </Flex>
       );
     }
-  }, [isLoading, ads]);
+  }, [isLoading, ads, setSelectedAd]);
 
   return (
     <Box className={"sidebar"}>

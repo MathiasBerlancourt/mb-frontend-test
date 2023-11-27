@@ -1,4 +1,3 @@
-import { type Ad } from "types/Ad";
 import { Flex } from "@chakra-ui/react";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar/index";

@@ -1,6 +1,4 @@
-import { type Ad } from "types/Ad";
 import { type IAdAPIBody } from "types/AdAPIBody";
-import React from "react";
 import {
   Input,
   Stack,
@@ -52,7 +50,7 @@ const SearchBar = () => {
         width="30%"
         aria-label="slider-ex-2"
         colorScheme="red"
-        defaultValue={30}
+        defaultValue={searchAdBody.radius}
         min={0}
         max={300}
         onChange={(value: number) =>
@@ -99,10 +97,10 @@ const SearchBar = () => {
       >
         <Stack spacing={3} direction="row">
           <Radio colorScheme="red" value="rent">
-            Rent
+            Location
           </Radio>
           <Radio colorScheme="red" value="sale">
-            Sale
+            Vente
           </Radio>
         </Stack>
       </RadioGroup>

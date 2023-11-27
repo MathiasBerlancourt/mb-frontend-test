@@ -1,5 +1,5 @@
-import { AdAPIResponse } from "../types/AdAPIResponse";
-import { IAdAPIBody } from "../types/AdAPIBody";
+import { type AdAPIResponse } from "../types/AdAPIResponse";
+import { type IAdAPIBody } from "../types/AdAPIBody";
 import axios from "axios";
 
 export default class AdsAPI {

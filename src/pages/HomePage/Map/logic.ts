@@ -1,8 +1,8 @@
-import AdsContext from "context";
 import { useContext, useState } from "react";
+import AdsContext from "context";
 
 export const useMapComponent = () => {
-  const { ads } = useContext(AdsContext);
+  const { ads, setSelectedAd } = useContext(AdsContext);
   const [popupInfo, setPopupInfo] = useState("");
-  return { popupInfo, setPopupInfo, ads };
+  return { popupInfo, setPopupInfo, ads, setSelectedAd };
 };

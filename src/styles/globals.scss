@@ -1,4 +1,5 @@
 @import "components/sidebar.scss";
+@import "components/adDetailspage.scss";
 body,
 html {
   font-family: "Inter", sans-serif;
@@ -6,7 +7,6 @@ html {
   margin: 0;
   height: 100%;
 }
-
 .main-structure {
   position: absolute;
   width: 100%;

@@ -1,5 +1,5 @@
+import { type Ad } from "types/Ad";
 import { createContext } from "react";
-import { Ad } from "types/Ad";
 
 interface IAdsContext {
   ads: Ad[] | undefined;

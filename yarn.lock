@@ -7915,6 +7915,11 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
+nuka-carousel@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/nuka-carousel/-/nuka-carousel-7.0.0.tgz#bcf1d9d1ebf194a589ffecbfd42df269a6219805"
+  integrity sha512-KE0WV1MuE4Gq6ynL8P3qJH2rGq/DkJ0ej+ezo0IuZp4oklV8WNqu6P6O1utJqihHLGoEuFppq5wlHSHfhdCHXA==
+
 nwsapi@^2.2.0:
   version "2.2.7"
   resolved "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.7.tgz"
@@ -9080,6 +9085,11 @@ react-map-gl@^7.1.6:
     "@maplibre/maplibre-gl-style-spec" "^19.2.1"
     "@types/mapbox-gl" ">=1.0.0"
 
+react-multi-carousel@^2.8.4:
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.8.4.tgz#eee6493878974e372e5aa9944754602ec0f34968"
+  integrity sha512-7Is5Wr+m2ebkR+oq2Su2tjUdBwpVtB2O6Tjb74KDNfxWe/FrsTQwezTJTk/r9cKCrRp9Li308v822/5bZm7XKg==
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
@@ -9173,6 +9183,11 @@ react-scripts@5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-simply-carousel@^9.0.5:
+  version "9.0.5"
+  resolved "https://registry.yarnpkg.com/react-simply-carousel/-/react-simply-carousel-9.0.5.tgz#f1657e7b4a295483699471bfbc3f95d3a5ee40f7"
+  integrity sha512-5hegmcs73RLIyQURvOimft4Veg6zPyJGrsJ3nLTsmyDbzxwtCZGyY5w2W5uEqMdnh03k5jIqE7j1QEBUps40VA==
 
 react-slick@^0.29.0:
   version "0.29.0"

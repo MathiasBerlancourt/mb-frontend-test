@@ -1,4 +1,4 @@
-import { IGeoCodingBody } from "../types/geoCodingAPI";
+import { type IGeoCodingBody } from "../types/geoCodingAPI";
 import axios from "axios";
 
 export default class GeoCoding {
